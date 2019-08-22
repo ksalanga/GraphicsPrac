@@ -1,4 +1,4 @@
 # GraphicsPrac
 KrohnEducation Graphics Practice.
-\nLearning About Java Graphics with AWT.
-\nImplementing Applet and Components.
+Learning About Java Graphics with AWT.
+Implementing Applet and Components.
