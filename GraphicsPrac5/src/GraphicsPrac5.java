@@ -15,7 +15,7 @@ import java.awt.event.KeyListener;
 public class GraphicsPrac5 extends Applet implements KeyListener
 {
 	private int x, y;
-	final int speed = 5;
+	final int speed = 10;
 	final double gravity = 9.8;
 	
 	/**
@@ -54,7 +54,7 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 	public void keyPressed(KeyEvent e) 
 	{
 		int key = e.getKeyCode(); //gets the KeyEvent value which is a constant.
-		switch(key) 
+		switch (key) 
 		{
 		    case KeyEvent.VK_UP:
 			    if (y == 0) 
@@ -73,7 +73,7 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 		    	} 
 		    	else 
 		    	{
-		    		y += speed;
+		    		y += speed - gravity;
 		    	}
 		    	break;
 		    case KeyEvent.VK_RIGHT:
@@ -83,7 +83,7 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 		    	} 
 		    	else 
 		    	{
-		    		x += speed;
+		    		x += speed + gravity;
 		    	}
 		    	break;
 		    case KeyEvent.VK_LEFT:
@@ -93,9 +93,12 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 		    	} 
 		    	else 
 		    	{ 
-		    		x -= speed;
+		    		x -= speed + gravity;
 		    	}
 		    	break;
+		    default:
+		    	x = 0;
+		    	y = 0;
 		}
 		
 		repaint();
@@ -106,5 +109,4 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 	public void keyTyped(KeyEvent e) {}
 	
 	public void keyReleased(KeyEvent e) {}
-
 }
