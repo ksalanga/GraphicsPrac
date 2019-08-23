@@ -14,7 +14,7 @@ import java.awt.event.KeyListener;
 public class GraphicsPrac4 extends Applet implements KeyListener
 {
 	private int x, y;
-	final int speed = 100;
+	final int speed = 20;
 	
 	/**
 	 * Initializes the Applet's size,
