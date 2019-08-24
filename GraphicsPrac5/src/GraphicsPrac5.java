@@ -14,9 +14,11 @@ import java.awt.event.KeyListener;
  */
 public class GraphicsPrac5 extends Applet implements KeyListener
 {
-	private int x, y;
-	final int speed = 12;
-	final int gravity = 10;
+	private double x, y, xVelocity, yVelocity;
+	final double speed = .3;
+	final double gravity = .96;
+	private boolean upAccel, downAccel, rightAccel, leftAccel;
+	Thread thread;
 	
 	/**
 	 * Initializes the Applet's size,
@@ -25,10 +27,19 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 	 */
 	public void init() 
 	{
-		this.resize(100, 100);
-		addKeyListener(this);
+		upAccel = false;
+		downAccel = false;
+		rightAccel = false;
+		leftAccel = false;
+		xVelocity = 0;
+		yVelocity = 0;
 		x = 0;
 		y = 0;
+		this.resize(100, 100);
+		addKeyListener(this);
+		
+		thread = new Thread();
+		thread.start();
 	}
 	
 	/**
@@ -40,7 +51,7 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 	{
 		setBackground(Color.black);
 		g.setColor(Color.BLUE);
-		g.drawRect(x, y, 50, 50);
+		g.drawRect((int) x, (int) y, 50, 50);
 		
 	}
 	
