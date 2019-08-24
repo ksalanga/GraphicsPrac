@@ -15,8 +15,8 @@ import java.awt.event.KeyListener;
 public class GraphicsPrac5 extends Applet implements KeyListener
 {
 	private int x, y;
-	final int speed = 10;
-	final double gravity = 9.8;
+	final int speed = 12;
+	final int gravity = 10;
 	
 	/**
 	 * Initializes the Applet's size,
@@ -63,7 +63,7 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 			    } 
 			    else 
 			    {
-				    y -= speed - gravity;
+				    y -= (speed - gravity);
 			    }
 			    break;
 		    case KeyEvent.VK_DOWN:
@@ -73,7 +73,7 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 		    	} 
 		    	else 
 		    	{
-		    		y += speed - gravity;
+		    		y += (speed - gravity);
 		    	}
 		    	break;
 		    case KeyEvent.VK_RIGHT:
@@ -83,7 +83,7 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 		    	} 
 		    	else 
 		    	{
-		    		x += speed + gravity;
+		    		x += (speed - gravity);
 		    	}
 		    	break;
 		    case KeyEvent.VK_LEFT:
@@ -93,7 +93,7 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 		    	} 
 		    	else 
 		    	{ 
-		    		x -= speed + gravity;
+		    		x -= (speed - gravity);
 		    	}
 		    	break;
 		    default:
