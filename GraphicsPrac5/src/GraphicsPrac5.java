@@ -56,6 +56,30 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 	}
 	
 	/**
+	 * Runs the thread of execution for
+	 * the Applet to use acceleration velocity and
+	 * distance. Also moved repaint method 
+	 * (which updates) here.
+	 */
+	public void run()
+	{
+		
+		x += xVelocity;
+		y += yVelocity;
+		
+		repaint();
+		
+		try
+		{
+			Thread.sleep(5);
+		}
+		catch(InterruptedException e)
+		{
+			
+		}
+	}
+	
+	/**
 	 * Takes keyboard presses and outputs
 	 * movement based on arrow keys.
 	 * This time, the keys will accelerate
@@ -82,16 +106,31 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 		}
 		
 	} 
-
-	public void keyTyped(KeyEvent e) {}
 	
 	/**
 	 * Takes keyboard releases and outputs
 	 * movement based on arrow keys.
-	 * 
+	 * @param e any key stroke released.
 	 */
 	public void keyReleased(KeyEvent e)
 	{
-		
+		int key = e.getKeyCode(); //gets the KeyEvent value which is a constant.
+		switch (key) 
+		{
+		    case KeyEvent.VK_UP:
+			    upAccel = false;
+			    break;
+		    case KeyEvent.VK_DOWN:
+		    	downAccel = false;
+		    	break;
+		    case KeyEvent.VK_RIGHT:
+		    	rightAccel = false;
+		    	break;
+		    case KeyEvent.VK_LEFT:
+		    	leftAccel = false;
+		    	break;
+		}	
 	}
+	
+	public void keyTyped(KeyEvent e) {}
 }
