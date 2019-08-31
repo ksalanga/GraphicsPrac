@@ -58,8 +58,8 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 	/**
 	 * Takes keyboard presses and outputs
 	 * movement based on arrow keys.
-	 * Also repaints the canvas once 
-	 * keys are pressed.
+	 * This time, the keys will accelerate
+	 * the block.
 	 * @param e any key stroke pressed.
 	 */
 	public void keyPressed(KeyEvent e) 
@@ -68,56 +68,30 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 		switch (key) 
 		{
 		    case KeyEvent.VK_UP:
-			    if (y == 0) 
-			    {
-				    y = getHeight();
-			    } 
-			    else 
-			    {
-				    y -= (speed - gravity);
-			    }
+			    upAccel = true;
 			    break;
 		    case KeyEvent.VK_DOWN:
-		    	if (y > getHeight()) 
-		    	{
-		    		y = 0;
-		    	} 
-		    	else 
-		    	{
-		    		y += (speed - gravity);
-		    	}
+		    	downAccel = true;
 		    	break;
 		    case KeyEvent.VK_RIGHT:
-		    	if (x > getWidth())
-		    	{
-		    		x = 0;
-		    	} 
-		    	else 
-		    	{
-		    		x += (speed - gravity);
-		    	}
+		    	rightAccel = true;
 		    	break;
 		    case KeyEvent.VK_LEFT:
-		    	if (x == 0) 
-		    	{
-		    		x = getWidth();
-		    	} 
-		    	else 
-		    	{ 
-		    		x -= (speed - gravity);
-		    	}
+		    	leftAccel = true;
 		    	break;
-		    default:
-		    	x = 0;
-		    	y = 0;
 		}
 		
-		repaint();
-		System.out.printf("(%d, %d)", x, y);
-		System.out.println();
 	} 
 
 	public void keyTyped(KeyEvent e) {}
 	
-	public void keyReleased(KeyEvent e) {}
+	/**
+	 * Takes keyboard releases and outputs
+	 * movement based on arrow keys.
+	 * 
+	 */
+	public void keyReleased(KeyEvent e)
+	{
+		
+	}
 }
