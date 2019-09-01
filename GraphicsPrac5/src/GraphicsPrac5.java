@@ -50,8 +50,10 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 	public void paint(Graphics g) 
 	{
 		setBackground(Color.black);
-		g.setColor(Color.BLUE);
-		g.drawRect((int) x, (int) y, 50, 50);
+		g.setColor(Color.red);
+		g.fillOval((int) x, (int) y, 50, 50);
+		g.setColor(Color.white);
+		g.drawOval((int) x, (int) y, 50, 50);
 		
 	}
 	
@@ -63,6 +65,27 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 	 */
 	public void run()
 	{
+		if (!upAccel || !downAccel || !rightAccel || !leftAccel)
+		{
+			
+		}
+		
+		if (x < 0)
+		{
+			x = getWidth(); //applet function
+		}
+		if (y < 0)
+		{
+			y = getHeight(); //applet function
+		}
+		if (x > getWidth())
+		{
+			x = 0;
+		}
+		if (y > getHeight())
+		{
+			y = 0;
+		}
 		
 		x += xVelocity;
 		y += yVelocity;
@@ -71,7 +94,7 @@ public class GraphicsPrac5 extends Applet implements KeyListener
 		
 		try
 		{
-			Thread.sleep(5);
+			Thread.sleep(5); //pauses the execution for 5 ms to let things rest. refreshes the thread sort of
 		}
 		catch(InterruptedException e)
 		{
